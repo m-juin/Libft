@@ -6,7 +6,7 @@
 /*   By: mjuin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 10:57:49 by mjuin             #+#    #+#             */
-/*   Updated: 2022/09/30 11:28:25 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/09/30 19:35:07 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	size = ft_strlen(s) + 1;
 	nstr = malloc(size * sizeof(char));
-	ft_bzero(nstr, size);
-	pos = 0;
 	if (!nstr)
 		return (NULL);
+	ft_bzero(nstr, size);
+	pos = 0;
 	while (s[pos])
 	{
 		nstr[pos] = f(pos, s[pos]);
