@@ -6,7 +6,7 @@
 /*   By: mjuin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 14:24:12 by mjuin             #+#    #+#             */
-/*   Updated: 2022/09/28 15:58:08 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/10/01 15:17:12 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*subs;
 	int		pos;
 
+	if (s == NULL)
+		return (NULL);
 	if (start > ft_strlen(s))
 	{
 		subs = malloc(1);

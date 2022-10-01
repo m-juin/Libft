@@ -6,7 +6,7 @@
 /*   By: mjuin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 09:21:02 by mjuin             #+#    #+#             */
-/*   Updated: 2022/09/29 12:25:44 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/10/01 15:10:28 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,18 @@ char	**ft_split(char const *s, char c)
 
 	start = 0;
 	count2 = 0;
+	if (s == NULL)
+		return (NULL);
 	count = ft_wordcount(s, c);
-	if (s[0] == '\0' || count == 0)
-	{
-		splited = malloc(sizeof(char *));
-		splited[0] = 0;
-		return (splited);
-	}
 	splited = malloc(((count + 1) * sizeof(char *)));
 	if (!splited)
 		return (NULL);
-	while (count2 < count)
+	if ((s[0] == '\0' || count == 0))
+	{
+		splited[0] = 0;
+		return (splited);
+	}
+	while (count2 < ft_wordcount(s, c))
 	{
 		splited[count2] = ft_getnextword(s, c, &start);
 		count2++;

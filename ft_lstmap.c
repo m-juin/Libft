@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjuin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 12:04:55 by mjuin             #+#    #+#             */
-/*   Updated: 2022/09/30 16:18:43 by mjuin            ###   ########.fr       */
+/*   Created: 2022/10/01 13:18:08 by mjuin             #+#    #+#             */
+/*   Updated: 2022/10/01 13:32:51 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
-#include <bsd/string.h>
 #include "libft.h"
 
-int	main (void)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	void	*mem;
-	if (!(mem = malloc(sizeof(*mem) * 30)))
-		return (0);
-	strlcat(mem, NULL, 0);
-	printf("%s", (char *)mem);
+	t_list	*new;
+	t_list	*prev;
+	t_list	*start;
+
+	prev = NULL;
+	if (lst == NULL || f == NULL || del == NULL)
+		return (NULL);
+	while (lst != NULL)
+	{
+		new = ft_lstnew(lst->content);
+		if (prev != NULL)
+			prev->next = new;
+		else
+			start = new;
+		new->content = (*f)(new->content);
+		prev = new;
+		lst = lst->next;
+	}
+	return (start);
 }

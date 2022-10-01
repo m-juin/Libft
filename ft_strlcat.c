@@ -6,7 +6,7 @@
 /*   By: mjuin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:53:11 by mjuin             #+#    #+#             */
-/*   Updated: 2022/09/30 16:25:29 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/10/01 13:54:37 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	pos2;
 	size_t	dstsize;
 
+	if ((src == NULL || dst == NULL) && size == 0)
+		return (0);
 	pos2 = ft_strlen(src);
 	pos1 = ft_strlen(dst);
 	dstsize = pos1;

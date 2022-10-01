@@ -6,7 +6,7 @@
 /*   By: mjuin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 15:09:24 by mjuin             #+#    #+#             */
-/*   Updated: 2022/09/30 19:27:22 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/10/01 14:05:36 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	y = 0;
 	lens = len;
-	if (big == NULL && little == NULL)
-		return ((char *)&big[y]);
-	if (big[0] == '\0' && little[0] == '\0')
+	if ((big == NULL || little == NULL) && len == 0)
+		return (NULL);
+	if (big[0] == '\0')
+		return (NULL);
+	if (little[0] == '\0' )
 		return ((char *)&big[y]);
 	while (lens > 0 && big[y] != '\0')
 	{

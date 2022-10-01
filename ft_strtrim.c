@@ -6,7 +6,7 @@
 /*   By: mjuin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 15:59:49 by mjuin             #+#    #+#             */
-/*   Updated: 2022/09/29 09:36:32 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/10/01 15:17:00 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		count3;
 	int		size;
 
+	if (s1 == NULL || set == NULL)
+		return (NULL);
 	count1 = ft_checkstart(s1, set);
 	count2 = ft_checkend(s1, set);
 	size = (ft_strlen(s1) - (count1 + count2));
