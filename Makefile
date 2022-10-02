@@ -6,7 +6,7 @@
 #    By: mjuin <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/27 10:16:13 by mjuin             #+#    #+#              #
-#    Updated: 2022/10/02 15:17:11 by mjuin            ###   ########.fr        #
+#    Updated: 2022/10/02 23:29:28 by mjuin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,7 +89,3 @@ re:	fclean all
 
 bonus:	${OBJS} ${BNSS}
 	${AR} -o ${NAME} ${OBJS} ${BNSS} ${HDS}
-
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(BNS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS) $(BNSS)
