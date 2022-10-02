@@ -6,7 +6,7 @@
 #    By: mjuin <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/27 10:16:13 by mjuin             #+#    #+#              #
-#    Updated: 2022/09/30 21:28:40 by mjuin            ###   ########.fr        #
+#    Updated: 2022/10/02 15:04:51 by mjuin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,33 +53,39 @@ SRCS	= ft_isalpha.c \
 	ft_putchar_fd.c \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
-	ft_putnbr_fd.c \
-	ft_lstnew.c
+	ft_putnbr_fd.c
+
+BNS	= ft_lstnew.c \
+	  ft_lstadd_front.c \
+	  ft_lstsize.c \
+	  ft_lstlast.c \
+	  ft_lstadd_back.c \
+	  ft_lstdelone.c \
+	  ft_lstclear.c \
+	  ft_lstiter.c \
+	  ft_lstmap.c
 
 HDS	= libft.h
 
 OBJS	= ${SRCS:.c=.o}
+
+BNSS	= ${BNS:.c=.o}
 
 .c.o:
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 all:	$(NAME)
 
-${NAME}:	${OBJS}
+$(NAME):	${OBJS}
 	${AR} -o ${NAME} ${OBJS} ${HDS}
 	
-exe:	${SRCS}
-	${CC} ${CFLAGS} ${SRCS} 
-
 clean:
-	${RM} ${OBJS}
+	${RM} ${OBJS} ${BNSS}
 
 fclean:	clean
 	${RM} ${NAME}
 
 re:	fclean all
 
-${bonus}:	all
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
+bonus:	${OBJS} ${BNSS}
+	${AR} -o ${NAME} ${OBJS} ${BNSS} ${HDS}
