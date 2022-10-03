@@ -24,7 +24,7 @@ static char	*ft_getnextword(char const *s, char c, int *start)
 	count = 0;
 	while (s[*start + count] && s[*start + count] != c)
 		count++;
-	str = malloc ((count * sizeof(char)) + 1);
+	str = malloc((count * sizeof(char)) + 1);
 	count = 0;
 	while (s[*start + count] && s[*start + count] != c)
 	{
