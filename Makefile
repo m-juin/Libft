@@ -6,7 +6,7 @@
 #    By: mjuin <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/27 10:16:13 by mjuin             #+#    #+#              #
-#    Updated: 2022/10/02 23:29:28 by mjuin            ###   ########.fr        #
+#    Updated: 2022/10/03 12:38:59 by mjuin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,8 +65,6 @@ BNS	= ft_lstnew_bonus.c \
 	  ft_lstiter_bonus.c \
 	  ft_lstmap_bonus.c
 
-HDS	= libft.h
-
 OBJS	= ${SRCS:.c=.o}
 
 BNSS	= ${BNS:.c=.o}
@@ -77,15 +75,18 @@ BNSS	= ${BNS:.c=.o}
 all:	$(NAME)
 
 $(NAME):	${OBJS}
-	${AR} -o ${NAME} ${OBJS} ${HDS}
-	
+	${AR} ${NAME} ${OBJS}
+
+bonus:		${OBJS} ${BNSS}
+	${AR} ${NAME} ${OBJS} ${BNSS}
+
 clean:
 	${RM} ${OBJS} ${BNSS}
 
 fclean:	clean
-	${RM} ${NAME}
+	${RM} ${NAME} ${NBONUS}
 
 re:	fclean all
 
-bonus:	${OBJS} ${BNSS}
-	${AR} -o ${NAME} ${OBJS} ${BNSS} ${HDS}
+.PHONY:
+	re fclean clean all bonus
