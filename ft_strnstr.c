@@ -22,9 +22,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	lens = len;
 	if ((big == NULL || little == NULL) && len == 0)
 		return (NULL);
-	if (big[0] == '\0')
-		return (NULL);
-	if (little[0] == '\0' )
+	if (little[0] == '\0')
 		return ((char *)&big[y]);
 	while (lens > 0 && big[y] != '\0')
 	{
