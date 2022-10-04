@@ -6,7 +6,7 @@
 #    By: mjuin <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/27 10:16:13 by mjuin             #+#    #+#              #
-#    Updated: 2022/10/03 12:38:59 by mjuin            ###   ########.fr        #
+#    Updated: 2022/10/04 14:46:51 by mjuin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,9 +84,13 @@ clean:
 	${RM} ${OBJS} ${BNSS}
 
 fclean:	clean
-	${RM} ${NAME} ${NBONUS}
+	${RM} ${NAME}
 
 re:	fclean all
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(BNS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS) $(BNSS)
 
 .PHONY:
 	re fclean clean all bonus

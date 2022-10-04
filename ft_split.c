@@ -6,11 +6,24 @@
 /*   By: mjuin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 09:21:02 by mjuin             #+#    #+#             */
-/*   Updated: 2022/10/01 15:10:28 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/10/04 14:37:13 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void	ft_cleartab(char	**tab)
+{
+	int	pos;
+
+	pos = 0;
+	while (tab[pos] != NULL)
+	{
+		free(tab[pos]);
+		pos++;
+	}
+	free(tab);
+}
 
 static char	*ft_getnextword(char const *s, char c, int *start)
 {
@@ -25,6 +38,8 @@ static char	*ft_getnextword(char const *s, char c, int *start)
 	while (s[*start + count] && s[*start + count] != c)
 		count++;
 	str = malloc((count * sizeof(char)) + 1);
+	if (!str)
+		return (NULL);
 	count = 0;
 	while (s[*start + count] && s[*start + count] != c)
 	{
@@ -56,15 +71,34 @@ static int	ft_wordcount(const char *s, char c)
 	return (count + 1);
 }
 
+static int	ft_split2(char **tab, int *start, const char *s, int c)
+{
+	int	count2;
+	int	count;
+
+	count2 = 0;
+	count = ft_wordcount(s, c);
+	while (count2 < count)
+	{
+		tab[count2] = ft_getnextword(s, c, start);
+		if (!tab[count2])
+		{
+			ft_cleartab(tab);
+			return (1);
+		}
+		count2++;
+	}
+	tab[count2] = NULL;
+	return (0);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	int		start;
 	char	**splited;
 	int		count;
-	int		count2;
 
 	start = 0;
-	count2 = 0;
 	if (s == NULL)
 		return (NULL);
 	count = ft_wordcount(s, c);
@@ -76,11 +110,7 @@ char	**ft_split(char const *s, char c)
 		splited[0] = 0;
 		return (splited);
 	}
-	while (count2 < ft_wordcount(s, c))
-	{
-		splited[count2] = ft_getnextword(s, c, &start);
-		count2++;
-	}
-	splited[count2] = NULL;
+	if (ft_split2(splited, &start, s, c) == 1)
+		return (NULL);
 	return (splited);
 }

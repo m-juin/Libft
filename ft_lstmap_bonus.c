@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjuin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 13:18:08 by mjuin             #+#    #+#             */
-/*   Updated: 2022/10/01 13:32:51 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/10/04 14:44:39 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	while (lst != NULL)
 	{
 		new = ft_lstnew(lst->content);
+		if (!new)
+		{
+			ft_lstclear(&start, del);
+			return (NULL);
+		}
 		if (prev != NULL)
 			prev->next = new;
 		else
