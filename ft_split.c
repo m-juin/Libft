@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static void	ft_cleartab(char	**tab)
+static void	ft_cleartab(char **tab)
 {
 	int	pos;
 
