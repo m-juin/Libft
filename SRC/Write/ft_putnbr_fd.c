@@ -19,11 +19,7 @@ size_t	ft_putnbr_fd(int n, int fd)
 
 	printer = 0;
 	size = 0;
-<<<<<<< HEAD:SRC/Write/ft_putnbr_fd.c
 	if (n == -2147483648)
-=======
-	if (n == INT_MIN)
->>>>>>> 2622c13091b25a12df80091afa94a1b3d7264cf0:ft_putnbr_fd.c
 		size += ft_putstr_fd("-2147483648", fd);
 	else
 	{
