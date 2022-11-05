@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_convert_bin.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjuin <mjuin@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 14:30:28 by mjuin             #+#    #+#             */
-/*   Updated: 2022/11/05 20:03:14 by mjuin            ###   ########.fr       */
+/*   Created: 2022/11/05 19:55:41 by mjuin             #+#    #+#             */
+/*   Updated: 2022/11/05 21:50:12 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
-size_t	ft_strlen(const char *s)
+char	ft_convert_bin(int binary[8])
 {
-	size_t	len;
+	int	pos;
+	int	c;
 
-	len = 0;
-	if (s == NULL)
-		return (0);
-	while (s[len] != 0)
-		len++;
-	return (len);
+	pos = 0;
+	c = 0;
+	while (pos < 8)
+	{
+		c += binary[pos] * (ft_power(7 - pos, 2));
+		pos++;
+	}
+	return (c);
 }

@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_power.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjuin <mjuin@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 14:30:28 by mjuin             #+#    #+#             */
-/*   Updated: 2022/11/05 20:03:14 by mjuin            ###   ########.fr       */
+/*   Created: 2022/11/05 19:55:46 by mjuin             #+#    #+#             */
+/*   Updated: 2022/11/05 21:50:08 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
-
-size_t	ft_strlen(const char *s)
+int	ft_power(int power, int basesize)
 {
-	size_t	len;
+	int	ret;
 
-	len = 0;
-	if (s == NULL)
-		return (0);
-	while (s[len] != 0)
-		len++;
-	return (len);
+	ret = 1;
+	while (power > 0)
+	{
+		ret *= basesize;
+		power--;
+	}
+	return (ret);
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mjuin <marvin@42.fr>                       +#+  +:+       +#+         #
+#    By: mjuin <mjuin@student.42angouleme.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/27 10:16:13 by mjuin             #+#    #+#              #
-#    Updated: 2022/10/12 10:39:58 by mjuin            ###   ########.fr        #
+#    Updated: 2022/11/05 20:19:12 by mjuin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,8 @@ SRC_STR = ./SRC/Str/ft_strlen.c \
 	./SRC/Str/ft_strjoin.c \
 	./SRC/Str/ft_strtrim.c \
 	./SRC/Str/ft_strmapi.c \
-	./SRC/Str/ft_striteri.c
+	./SRC/Str/ft_striteri.c \
+	./SRC/Str/ft_straddchar.c
 
 SRC_WRITE = ./SRC/Write/ft_putchar_fd.c \
 	./SRC/Write/ft_putstr_fd.c \
@@ -64,7 +65,9 @@ SRC_WRITE = ./SRC/Write/ft_putchar_fd.c \
 
 SRC_MISC = ./SRC/Misc/ft_atoi.c \
 	./SRC/Misc/ft_split.c \
-	./SRC/Misc/ft_itoa.c
+	./SRC/Misc/ft_itoa.c \
+	./SRC/Misc/ft_power.c \
+	./SRC/Misc/ft_convert_bin.c
 
 SRC_LST	= ./SRC/Lst/ft_lstnew.c \
 	./SRC/Lst/ft_lstadd_front.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mjuin <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mjuin <mjuin@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 15:01:10 by mjuin             #+#    #+#             */
-/*   Updated: 2022/10/12 12:37:26 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/11/05 20:24:10 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,11 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+char	*ft_straddchar(char *dst, const char src);
 
 /* char */
 
@@ -55,7 +56,7 @@ void	ft_putendl_fd(char *s, int fd);
 size_t	ft_putnbr_fd(int n, int fd);
 size_t	ft_uputnbr_fd(unsigned int nbr, int fd);
 size_t	ft_puthexa_fd(long unsigned int nbr, int size, int fd, int pointer);
-int		ft_printf(const char *, ...);
+int		ft_printf(const char *str, ...);
 
 /* Memory */
 
@@ -71,6 +72,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 int		ft_atoi(const char *nptr);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
+int		ft_power(int power, int basesize);
+char	ft_convert_bin(int binary[8]);
 
 /* lst */
 typedef struct s_list
