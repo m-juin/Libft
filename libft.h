@@ -6,12 +6,14 @@
 /*   By: mjuin <mjuin@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 15:01:10 by mjuin             #+#    #+#             */
-/*   Updated: 2022/11/05 20:24:10 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/11/08 21:34:59 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# define BUFFER_SIZE 42
 
 # include	<stdlib.h>
 # include	<limits.h>
@@ -42,6 +44,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_straddchar(char *dst, const char src);
+char	*ft_strcopy(char *dst, char *src);
 
 /* char */
 
@@ -74,6 +77,7 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 int		ft_power(int power, int basesize);
 char	ft_convert_bin(int binary[8]);
+char	*get_next_line(int fd);
 
 /* lst */
 typedef struct s_list
