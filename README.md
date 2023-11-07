@@ -98,3 +98,13 @@ Here are the functions I added to my libft library that are not asked by the sub
 | ft_putptr_fd | output a variable pointer into hexadecimal format to a desired fd | [Link](https://github.com/m-juin/Libft/blob/master/src/print/ft_putptr_fd.c) |
 | ft_str_mega_join | Create a new string resulting from the addition of multiple string | [Link](https://github.com/m-juin/Libft/blob/master/src/string/ft_str_mega_join.c) |
 | ft_strjoin_f | Combinate two string into another then free the sources strings | [Link](https://github.com/m-juin/Libft/blob/master/src/string/ft_strjoin_f.c) |
+
+## Usage
+
+``make`` to compile.
+
+``clean`` to clean all compiled file without the library file.
+
+``fclean`` to clean all compiled file with the library file.
+
+``re`` to fclean then make.
