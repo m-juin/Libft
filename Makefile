@@ -3,90 +3,112 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mjuin <marvin@42.fr>                       +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/09/27 10:16:13 by mjuin             #+#    #+#              #
-#    Updated: 2022/10/04 14:46:51 by mjuin            ###   ########.fr        #
+#    By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                  +#+#+#+#+#+   +#+            #
+#    Created: 2022/09/28 13:38:40 by gpasquet          #+#    #+#              #
+#    Updated: 2023/02/03 15:01:43 by gpasquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= libft.a
+CC		=	clang	
 
-CC	= gcc
+NAME	= 	libft.a
 
-AR	= ar rc
+INDI	=	\033[38;5;99m
 
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= 	-Wall -Wextra -Werror
 
-RM	= rm -f
+SRCS	=	./src/string/ft_split.c			\
+			./src/string/ft_strdup.c		\
+			./src/string/ft_strndup.c		\
+			./src/string/ft_strrchr.c		\
+			./src/string/ft_strcmp.c		\
+			./src/string/ft_strncmp.c		\
+			./src/string/ft_striteri.c		\
+			./src/string/ft_strtrim.c		\
+			./src/string/ft_strmapi.c		\
+			./src/string/ft_strchr.c		\
+			./src/string/ft_strlcat.c		\
+			./src/string/ft_strlcpy.c		\
+			./src/string/ft_strjoin.c		\
+			./src/string/ft_strjoin_f.c		\
+			./src/string/ft_str_mega_join.c \
+			./src/string/ft_substr.c		\
+			./src/string/ft_strnstr.c		\
+			./src/string/ft_strlen.c		\
+			./src/string/ft_strfindchr.c	\
+			./src/memory/ft_memchr.c		\
+			./src/memory/ft_calloc.c		\
+			./src/memory/ft_memmove.c		\
+			./src/memory/ft_memcmp.c		\
+			./src/memory/ft_bzero.c			\
+			./src/memory/ft_memset.c		\
+			./src/memory/ft_memcpy.c		\
+			./src/conversion/ft_atoi.c 		\
+			./src/conversion/ft_atoll.c 	\
+			./src/conversion/ft_itoa.c		\
+			./src/char/ft_isalnum.c			\
+			./src/char/ft_isdigit.c			\
+			./src/char/ft_isalpha.c			\
+			./src/char/ft_toupper.c			\
+			./src/char/ft_isascii.c			\
+			./src/char/ft_tolower.c			\
+			./src/char/ft_isprint.c			\
+			./src/list/ft_lstnew.c			\
+ 			./src/list/ft_lstadd_front.c	\
+			./src/list/ft_lstsize.c			\
+			./src/list/ft_lstlast.c			\
+			./src/list/ft_lstadd_back.c		\
+			./src/list/ft_lstdelone.c		\
+			./src/list/ft_lstclear.c		\
+			./src/list/ft_lstiter.c			\
+			./src/list/ft_lstmap.c			\
+			./src/print/ft_putstr_fd.c		\
+			./src/print/ft_putchar_fd.c		\
+			./src/print/ft_putendl_fd.c		\
+			./src/print/ft_putnbr_fd.c		\
+			./src/print/ft_puthexa_fd.c		\
+			./src/print/ft_putptr_fd.c		\
+			./src/print/ft_printf_fd.c		\
+			./src/gnl/get_next_line.c		\
+			./src/gnl/get_next_line_utils.c	
+			
+OBJS= 	${SRCS:%.c=%.o}
 
-SRCS	= ft_isalpha.c \
-	ft_isdigit.c \
-	ft_isalnum.c \
-	ft_isascii.c \
-	ft_isprint.c \
-	ft_strlen.c \
-	ft_memset.c \
-	ft_bzero.c \
-	ft_memcpy.c \
-	ft_memmove.c \
-	ft_strlcpy.c \
-	ft_strlcat.c \
-	ft_toupper.c \
-	ft_tolower.c \
-	ft_strchr.c \
-	ft_strrchr.c \
-	ft_strncmp.c \
-	ft_memchr.c \
-	ft_memcmp.c \
-	ft_strnstr.c \
-	ft_atoi.c \
-	ft_calloc.c \
-	ft_strdup.c \
-	ft_substr.c \
-	ft_strjoin.c \
-	ft_strtrim.c \
-	ft_split.c \
-	ft_itoa.c \
-	ft_strmapi.c \
-	ft_striteri.c \
-	ft_putchar_fd.c \
-	ft_putstr_fd.c \
-	ft_putendl_fd.c \
-	ft_putnbr_fd.c
+RM		=	rm -f
 
-BNS	= ft_lstnew.c \
-	  ft_lstadd_front.c \
-	  ft_lstsize.c \
-	  ft_lstlast.c \
-	  ft_lstadd_back.c \
-	  ft_lstdelone.c \
-	  ft_lstclear.c \
-	  ft_lstiter.c \
-	  ft_lstmap.c
-
-OBJS	= ${SRCS:.c=.o}
-
-BNSS	= ${BNS:.c=.o}
+${NAME}: ${OBJS}
+	@ar rc ${NAME} ${OBJS}
+	@printf "${INDI}libft compiled          \n\033[00m"
 
 .c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+	@printf "Compiling libft .c to .o \r"
+	@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 all:	$(NAME)
-
-$(NAME):	${OBJS}
-	${AR} ${NAME} ${OBJS}
-
-bonus:		${OBJS} ${BNSS}
-	${AR} ${NAME} ${OBJS} ${BNSS}
-
+	
 clean:
-	${RM} ${OBJS} ${BNSS}
+	@n=1; \
+	for file in $(OBJS); do \
+		if test -e $$file; then \
+			if [ $$n -eq 1 ]; then \
+				printf "Cleaning libft .o files \n"; \
+			fi; \
+			n=$$((n + 1)); \
+			rm $$file; \
+		fi \
+	done
 
 fclean:	clean
-	${RM} ${NAME}
+	@n=1; \
+	if test -e ${NAME}; then \
+		if [ $$n -eq 1 ]; then \
+			printf "Cleaning libft.a\n"; \
+		fi; \
+		n=$$((n + 1)); \
+		rm ${NAME}; \
+	fi
 
 re:	fclean all
 
-.PHONY:
-	re fclean clean all bonus
+.PHONY: all clean fclean re
