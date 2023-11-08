@@ -99,7 +99,7 @@ Here are the functions I added to my libft library that are not asked by the sub
 | ft_str_mega_join | Create a new string resulting from the addition of multiple string | [Link](https://github.com/m-juin/Libft/blob/master/src/string/ft_str_mega_join.c) |
 | ft_strjoin_f | Combinate two string into another then free the sources strings | [Link](https://github.com/m-juin/Libft/blob/master/src/string/ft_strjoin_f.c) |
 
-## Usage
+# Usage
 
 ``make`` to compile.
 
