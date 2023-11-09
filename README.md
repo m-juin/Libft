@@ -104,8 +104,8 @@ Here are the functions I added to my libft library that are not asked by the sub
 
 ``make`` to compile.
 
-``clean`` to clean all compiled file without the library file.
+``clean`` to clean all compiled files without the library file.
 
-``fclean`` to clean all compiled file with the library file.
+``fclean`` to clean all compiled files with the library file.
 
 ``re`` to fclean then make.
