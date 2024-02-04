@@ -6,7 +6,7 @@
 
 Libft is the first project in the 42 program. It aims to introduce the students to the standard C functions by creating a library containing their own version of theses functions. They were advised to improve this library as the program progressed.
 
-# Contraints
+# Constraints
 
 According to the subject there is 2 contraints for this project:
 *  The global variables are prohibited.
