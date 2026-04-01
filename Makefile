@@ -3,77 +3,78 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gpasquet <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                  +#+#+#+#+#+   +#+            #
-#    Created: 2022/09/28 13:38:40 by gpasquet          #+#    #+#              #
-#    Updated: 2023/02/03 15:01:43 by gpasquet         ###   ########.fr        #
+#    By: mjuin <mjuin@student.42angouleme.fr>       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/09/28 13:38:40 by mjuin             #+#    #+#              #
+#    Updated: 2023/02/03 15:01:43 by mjuin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		=	clang	
 
 NAME	= 	libft.a
+ROOT_DIR := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
 
 INDI	=	\033[38;5;99m
 
 CFLAGS	= 	-Wall -Wextra -Werror
 
-SRCS	=	./src/string/ft_split.c			\
-			./src/string/ft_strdup.c		\
-			./src/string/ft_strndup.c		\
-			./src/string/ft_strrchr.c		\
-			./src/string/ft_strcmp.c		\
-			./src/string/ft_strncmp.c		\
-			./src/string/ft_striteri.c		\
-			./src/string/ft_strtrim.c		\
-			./src/string/ft_strmapi.c		\
-			./src/string/ft_strchr.c		\
-			./src/string/ft_strlcat.c		\
-			./src/string/ft_strlcpy.c		\
-			./src/string/ft_strjoin.c		\
-			./src/string/ft_strjoin_f.c		\
-			./src/string/ft_str_mega_join.c \
-			./src/string/ft_substr.c		\
-			./src/string/ft_strnstr.c		\
-			./src/string/ft_strlen.c		\
-			./src/string/ft_strfindchr.c	\
-			./src/memory/ft_memchr.c		\
-			./src/memory/ft_calloc.c		\
-			./src/memory/ft_memmove.c		\
-			./src/memory/ft_memcmp.c		\
-			./src/memory/ft_bzero.c			\
-			./src/memory/ft_memset.c		\
-			./src/memory/ft_memcpy.c		\
-			./src/conversion/ft_atoi.c 		\
-			./src/conversion/ft_atoll.c 	\
-			./src/conversion/ft_itoa.c		\
-			./src/char/ft_isalnum.c			\
-			./src/char/ft_isdigit.c			\
-			./src/char/ft_isalpha.c			\
-			./src/char/ft_toupper.c			\
-			./src/char/ft_isascii.c			\
-			./src/char/ft_tolower.c			\
-			./src/char/ft_isprint.c			\
-			./src/list/ft_lstnew.c			\
- 			./src/list/ft_lstadd_front.c	\
-			./src/list/ft_lstsize.c			\
-			./src/list/ft_lstlast.c			\
-			./src/list/ft_lstadd_back.c		\
-			./src/list/ft_lstdelone.c		\
-			./src/list/ft_lstclear.c		\
-			./src/list/ft_lstiter.c			\
-			./src/list/ft_lstmap.c			\
-			./src/print/ft_putstr_fd.c		\
-			./src/print/ft_putchar_fd.c		\
-			./src/print/ft_putendl_fd.c		\
-			./src/print/ft_putnbr_fd.c		\
-			./src/print/ft_puthexa_fd.c		\
-			./src/print/ft_putptr_fd.c		\
-			./src/print/ft_printf_fd.c		\
-			./src/gnl/get_next_line.c		\
-			./src/gnl/get_next_line_utils.c	
+SRCS	=	$(ROOT_DIR)/src/string/ft_split.c			\
+			$(ROOT_DIR)/src/string/ft_strdup.c		\
+			$(ROOT_DIR)/src/string/ft_strndup.c		\
+			$(ROOT_DIR)/src/string/ft_strrchr.c		\
+			$(ROOT_DIR)/src/string/ft_strcmp.c		\
+			$(ROOT_DIR)/src/string/ft_strncmp.c		\
+			$(ROOT_DIR)/src/string/ft_striteri.c		\
+			$(ROOT_DIR)/src/string/ft_strtrim.c		\
+			$(ROOT_DIR)/src/string/ft_strmapi.c		\
+			$(ROOT_DIR)/src/string/ft_strchr.c		\
+			$(ROOT_DIR)/src/string/ft_strlcat.c		\
+			$(ROOT_DIR)/src/string/ft_strlcpy.c		\
+			$(ROOT_DIR)/src/string/ft_strjoin.c		\
+			$(ROOT_DIR)/src/string/ft_strjoin_f.c		\
+			$(ROOT_DIR)/src/string/ft_str_mega_join.c \
+			$(ROOT_DIR)/src/string/ft_substr.c		\
+			$(ROOT_DIR)/src/string/ft_strnstr.c		\
+			$(ROOT_DIR)/src/string/ft_strlen.c		\
+			$(ROOT_DIR)/src/string/ft_strfindchr.c	\
+			$(ROOT_DIR)/src/memory/ft_memchr.c		\
+			$(ROOT_DIR)/src/memory/ft_calloc.c		\
+			$(ROOT_DIR)/src/memory/ft_memmove.c		\
+			$(ROOT_DIR)/src/memory/ft_memcmp.c		\
+			$(ROOT_DIR)/src/memory/ft_bzero.c			\
+			$(ROOT_DIR)/src/memory/ft_memset.c		\
+			$(ROOT_DIR)/src/memory/ft_memcpy.c		\
+			$(ROOT_DIR)/src/conversion/ft_atoi.c 		\
+			$(ROOT_DIR)/src/conversion/ft_atoll.c 	\
+			$(ROOT_DIR)/src/conversion/ft_itoa.c		\
+			$(ROOT_DIR)/src/char/ft_isalnum.c			\
+			$(ROOT_DIR)/src/char/ft_isdigit.c			\
+			$(ROOT_DIR)/src/char/ft_isalpha.c			\
+			$(ROOT_DIR)/src/char/ft_toupper.c			\
+			$(ROOT_DIR)/src/char/ft_isascii.c			\
+			$(ROOT_DIR)/src/char/ft_tolower.c			\
+			$(ROOT_DIR)/src/char/ft_isprint.c			\
+			$(ROOT_DIR)/src/list/ft_lstnew.c			\
+ 			$(ROOT_DIR)/src/list/ft_lstadd_front.c	\
+			$(ROOT_DIR)/src/list/ft_lstsize.c			\
+			$(ROOT_DIR)/src/list/ft_lstlast.c			\
+			$(ROOT_DIR)/src/list/ft_lstadd_back.c		\
+			$(ROOT_DIR)/src/list/ft_lstdelone.c		\
+			$(ROOT_DIR)/src/list/ft_lstclear.c		\
+			$(ROOT_DIR)/src/list/ft_lstiter.c			\
+			$(ROOT_DIR)/src/list/ft_lstmap.c			\
+			$(ROOT_DIR)/src/print/ft_putstr_fd.c		\
+			$(ROOT_DIR)/src/print/ft_putchar_fd.c		\
+			$(ROOT_DIR)/src/print/ft_putendl_fd.c		\
+			$(ROOT_DIR)/src/print/ft_putnbr_fd.c		\
+			$(ROOT_DIR)/src/print/ft_puthexa_fd.c		\
+			$(ROOT_DIR)/src/print/ft_putptr_fd.c		\
+			$(ROOT_DIR)/src/print/ft_printf_fd.c		\
+			$(ROOT_DIR)/src/gnl/get_next_line.c		\
+			$(ROOT_DIR)/src/gnl/get_next_line_utils.c	
 			
-OBJS= 	${SRCS:%.c=%.o}
+OBJS= 	${SRCS:$(ROOT_DIR)/%.c=$(ROOT_DIR)/%.o}
 
 RM		=	rm -f
 
